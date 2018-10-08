@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <title>Ravi Boys Hostel-4 NITJ</title>
+<style>
+    
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 115px;
+    left: 0;
+    background-color:#D3D3D3;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 3px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: green;
+    display: block;
+}
+
+.sidenav a:hover {
+    color:coral;
+}
+
+.main {
+    margin-left: 225px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: -5px -10px;
+    margin-top: 0px;
+    margin-right:40px;
+	background-image:url("back.jpg");
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 10px;}
+    .sidenav a {font-size: 18px;}
+}
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #330099;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+    .container
+{
+   width:100%;
+}
+.dark
+{
+  background-color:#330099;
+  color:white;
+}
+.light
+{
+  background-color:#c9ccf2;
+}
+#top_left
+{
+  display:inline-block;
+  margin-left:32px;
+}
+#top_right
+{
+  float:right;
+  margin-right:60px;
+  color:coral;
+}
+#top_div
+{
+  height:95px;
+  line-height:40px;
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="header" id="myHeader">
+    <div class="container dark">
+<div class="wrapper" id="top_div">
+<div id="top_left">
+    
+    <img class="size-full wp-image-6269 aligncenter" src="nit jalandhar logo2.jpg" alt="" width="600" height="90" />
+</div>
+<div id="top_right">
+<h3>Welcome Ravi Boys Hostel-4</h3>
+</div>
+<div id="clear">
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="content">
+ <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="sidenav">
+ <a href="complaints.html"><font size="4"> <span style="color: #993300;"><b>Complaints Track</b></span></font></a>
+    <a href="sturag.html"><font size="4">Student Registration</font></a>
+  <a href="createpoll.html"><font size="4">Create Poll</font></a>
+    <a href="addcircular.html"><font size="4">Add Circular</font></a>
+	<a href="messbill.html"><font size="4">Mess Bill</font></a>
+	<a href="pollresult.html"><font size="4">Poll Result</font></a>
+	<a href="test.html"><font size="4">About</font></a>
+    </br>
+     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <a href="Login%20Page.html"><font size="5"><span style="color: coral;"><b>LogOut ?</b></span></font></a>
+</div>
+
+<div class="main">
+    <h3 style="color: brown;"> <a name="about">Complaints</a></h3>
+	<h5 id="demo"  style="color:coral;" font size="3"></h5>
+	<br/>
+   </div>
+     
+</body>
+</html> 
+
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+<script type="text/javascript">
+  var config = {
+    apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
+    authDomain: "bh4-nitj.firebaseapp.com",
+    databaseURL: "https://bh4-nitj.firebaseio.com",
+    projectId: "bh4-nitj",
+    storageBucket: "bh4-nitj.appspot.com",
+    messagingSenderId: "287611465178",
+  };
+  firebase.initializeApp(config);  
+  var userDataRef = firebase.database().ref("complaints").orderByKey();  //this is to read data from firebase database.
+  userDataRef.once("value").then(function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var key = childSnapshot.key;
+  var childData = childSnapshot.val();              
+  var id_val = childSnapshot.val().complaintId;
+  var op1 = childSnapshot.val().date;
+  var op2 = childSnapshot.val().sender;
+  var op3 = childSnapshot.val().type;
+  var op4 = childSnapshot.val().details;
+  var op5 = childSnapshot.val().title;
+  var op6 = childSnapshot.val().status;
+  var op7 = childSnapshot.val().comments;
+  $("#demo").append("Comment ID:-"+id_val+"</br>Date: "+op1+"</br>Sender RollNo: "+op2+"</br>Related Committee: "+op3+"</br>Title: "+op5+"</br>Details: "+op4+"</br>Status: "+op6+"</br>Comments: "+op7+"</br></br>"); });
+  });
+</script>
+</body>
+</html>
+

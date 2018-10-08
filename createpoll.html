@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ravi Boys Hostel-4 NITJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+<style>
+ body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 115px;
+    left: 0;
+    background-color:#D3D3D3;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 3px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: green;
+    display: block;
+}
+
+.sidenav a:hover {
+    color:coral;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    margin-top: 20px;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.main {
+    margin-left: 225px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: -5px -10px;
+    margin-top: 0px;
+    background-image:url("back.jpg");
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #330099;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+    .container
+{
+   width:100%;
+}
+.dark
+{
+  background-color:#330099;
+  color:white;
+}
+.light
+{
+  background-color:#c9ccf2;
+}
+#top_left
+{
+  display:inline-block;
+  margin-left:32px;
+}
+#top_right
+{
+  float:right;
+  margin-right:60px;
+  color:coral;
+}
+#top_div
+{
+  height:95px;
+  line-height:40px;
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="header" id="myHeader">
+    <div class="container dark">
+<div class="wrapper" id="top_div">
+<div id="top_left">
+    
+    <img class="size-full wp-image-6269 aligncenter" src="nit jalandhar logo2.jpg" alt="" width="600" height="90" />
+</div>
+<div id="top_right">
+<h3>Welcome Ravi Boys Hostel-4</h3>
+</div>
+<div id="clear">
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="content">
+ <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="sidenav">
+ <a href="createpoll.html"><font size="5"> <span style="color: #993300;"><b>Create Poll</b></span></font></a>
+    <a href="test.html"><font size="4">About</font></a>
+    <a href="sturag.html"><font size="4">Student Registration</font></a>
+    <a href="addcircular.html"><font size="4">Add Circular</font></a>
+	<a href="pollresult.html"><font size="4">Poll Results</font></a>
+	<a href="messbill.html"><font size="4">Mess Bill</font></a>
+	<a href="complaints.html"><font size="4">Complaints Track</font></a>
+    </br>
+     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <a href="Login%20Page.html"><font size="5"><span style="color: coral;"><b>LogOut ?</b></span></font></a>
+</div>
+
+<div class="main">
+     <font size="5"><span style="color: blueviolet;"><b>Add Poll Question</b></span></font>
+    <br/><br/>
+	<form>
+        <font size="4"><span style="color: blueviolet;"><b>Poll Id:</b></span></font><br/>
+       <font size="4"><b>BH4/POLL/ </b></font><textarea name="pollid" style="width:70px; height:15px"></textarea></br></br>
+	    <font size="4"><span style="color: blueviolet;"><b>Title:</b></span></font><br/>
+       <textarea name="titl" style="width:682px; height:25px"></textarea></br>
+       <font size="4"><span style="color: blueviolet;"><b>Question:</b></span></font><br/>
+       <textarea name="Question" style="width:682px; height:50px"></textarea></br>
+            <font size="4"><span style="color: blueviolet;"><b>Option 1:</b></span></font>
+       <textarea name="option1" style="width:600px; height:18px"></textarea></br>
+	         <font size="4"><span style="color: blueviolet;"><b>Option 2:</b></span></font>
+       <textarea name="option2" style="width:600px; height:18px"></textarea></br>
+	          <font size="4"><span style="color: blueviolet;"><b>Option 3:</b></span></font>
+       <textarea name="option3" style="width:600px; height:18px"></textarea></br>
+	          <font size="4"><span style="color: blueviolet;"><b>Option 4:</b></span></font>
+       <textarea name="option4" style="width:600px; height:18px"></textarea></br>
+	   <input class="button" type="button" value="Submit" onclick="javascript:adddata(Question.value,option1.value,option2.value,option3.value,option4.value,pollid.value,titl.value)"/>
+<br/><br/><br/>
+</form>
+
+</div>
+     
+</body>
+</html> 
+
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<script>
+
+function adddata(name,rollno,password,roomno,email,qval,titl)
+{    var config = {
+    apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
+    authDomain: "bh4-nitj.firebaseapp.com",
+    databaseURL: "https://bh4-nitj.firebaseio.com",
+    projectId: "bh4-nitj",
+    storageBucket: "bh4-nitj.appspot.com",
+    messagingSenderId: "287611465178",
+  };
+  firebase.initializeApp(config);
+  var q_val="BH4/POLL/"+qval;
+  console.log(name,rollno,password,roomno,email,q_val,titl);
+   var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://fcm.googleapis.com/fcm/send",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json",
+    "Authorization": "key=AAAAQvb6rdo:APA91bHxNjlpY_BEJTO69GDbxN58tH7Bfcf_SgUwJQss0qR48OrajPlDIw5n9tDRDtY98UFTeB5grYVi5cpMnHSbXbaIDQGQohc1qK6didUZFx68yr95PLLBdOHly9KNjWtsp5jKfCYN",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "da9e1ddc-eed7-fd93-210e-1761bfd7da65"
+  },
+  "processData": false,
+  "data": "{\r\n  \"to\": \"/topics/circulars\",\r\n  \r\n  \"notification\": {\r\n\t \"title\": \"New Poll Arrived\",\r\n      \"text\": \""+titl+"\"\r\n  }\r\n}"
+}
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+  var playersRef =firebase.database().ref("pollsquestion");  //this is to append new child data with default key
+  playersRef.push ({
+   "question":name,
+   "option1":rollno,
+   "option2":password,
+   "option3":roomno,
+   "option4":email,
+   "pollId":q_val,
+   "title":titl
+  });
+   var playersRef =firebase.database().ref("pollResult");  //this is to append new child data with default key
+  playersRef.push ({
+   "question":name,
+   "option1":"0",
+   "option2":"0",
+   "option3":"0",
+   "option4":"0",
+   "pollId":q_val,
+   "title":titl
+  });
+  alert("Data Successfully Entered\nWait for 10 seconds and then reload the page (ctrl+r) to continue.");
+}</script>
+</body>
+</html>
+
