@@ -147,10 +147,13 @@
     <a href="sturag.html"><font size="4">Student Registration</font></a>
     <a href="addcircular.html"><font size="4">Add Circular</font></a>
 	<a href="pollresult.html"><font size="4">Poll Results</font></a>
+	 <a href="students.html"><font size="4">Student Record</font></a>
 	<a href="messbill.html"><font size="4">Mess Bill</font></a>
 	<a href="complaints.html"><font size="4">Complaints Track</font></a>
+	<a href="dues.html"><font size="4">Account Dues</font></a>
+	<a href="hostelleave.html"><font size="4">Hostel leave</font></a>
     </br>
-     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     <br/><br/><br/>
       <a href="Login%20Page.html"><font size="5"><span style="color: coral;"><b>LogOut ?</b></span></font></a>
 </div>
 
@@ -159,7 +162,16 @@
     <br/><br/>
 	<form>
         <font size="4"><span style="color: blueviolet;"><b>Poll Id:</b></span></font><br/>
-       <font size="4"><b>BH4/POLL/ </b></font><textarea name="pollid" style="width:70px; height:15px"></textarea></br></br>
+       <font size="4"><b>BH4/POLL/ <select name ="month" id="month" class="required-entry" required style="width:130px;height:28px;background-color:#D3D3D3;border-color:green;border-radius:8px">
+	<option value="" disabled selected>Choose Committee</option>
+			<option value="mess">Mess</option>
+            <option value="sports">Sports</option>
+			<option value="net">Network</option>
+			<option value="disc">Discipline</option>
+			<option value="maint">Maintanenance</option>
+			<option value="cult">Cultural</option>
+			<option value="lib">Library</option>
+			</select> / </b></font><input type="text" id="pollid" name="N1" maxlength="20" size="5"></br></br>
 	    <font size="4"><span style="color: blueviolet;"><b>Title:</b></span></font><br/>
        <textarea name="titl" style="width:682px; height:25px"></textarea></br>
        <font size="4"><span style="color: blueviolet;"><b>Question:</b></span></font><br/>
@@ -172,7 +184,7 @@
        <textarea name="option3" style="width:600px; height:18px"></textarea></br>
 	          <font size="4"><span style="color: blueviolet;"><b>Option 4:</b></span></font>
        <textarea name="option4" style="width:600px; height:18px"></textarea></br>
-	   <input class="button" type="button" value="Submit" onclick="javascript:adddata(Question.value,option1.value,option2.value,option3.value,option4.value,pollid.value,titl.value)"/>
+	   <input class="button" type="button" value="Submit" onclick="javascript:adddata(Question.value,option1.value,option2.value,option3.value,option4.value,pollid.value,titl.value,month.value)"/>
 <br/><br/><br/>
 </form>
 
@@ -203,7 +215,7 @@ function myFunction() {
 </script>
 <script>
 
-function adddata(name,rollno,password,roomno,email,qval,titl)
+function adddata(name,rollno,password,roomno,email,qval,titl,month)
 {    var config = {
     apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
     authDomain: "bh4-nitj.firebaseapp.com",
@@ -213,7 +225,7 @@ function adddata(name,rollno,password,roomno,email,qval,titl)
     messagingSenderId: "287611465178",
   };
   firebase.initializeApp(config);
-  var q_val="BH4/POLL/"+qval;
+  var q_val="BH4/POLL/"+month+"/"+qval;
   console.log(name,rollno,password,roomno,email,q_val,titl);
    var settings = {
   "async": true,
@@ -249,6 +261,10 @@ $.ajax(settings).done(function (response) {
    "option2":"0",
    "option3":"0",
    "option4":"0",
+   "option1n":rollno,
+   "option2n":password,
+   "option3n":roomno,
+   "option4n":email,
    "pollId":q_val,
    "title":titl
   });

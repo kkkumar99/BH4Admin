@@ -53,9 +53,9 @@ body {
     margin-left: 225px; /* Same as the width of the sidenav */
     font-size: 20px; /* Increased text to enable scrolling */
     padding: -5px -10px;
-    margin-top: -10px;
+    margin-top: 0px;
     margin-right:40px;
-    background-image:url("back.jpg");
+	background-image:url("back.jpg");
 }
 
 @media screen and (max-height: 450px) {
@@ -147,7 +147,7 @@ body {
 <body>
 
 <div class="sidenav">
- <a href="messbill.html"><font size="5"> <span style="color: #993300;"><b>Mess Bill </b></span></font></a>
+ <a href="dues.html"><font size="5"> <span style="color: #993300;"><b>Account Dues</b></span></font></a>
  <a href="test.html"><font size="4">About</font></a>
     <a href="sturag.html"><font size="4">Student Registration</font></a>
   <a href="createpoll.html"><font size="4">Create Poll</font></a>
@@ -155,8 +155,8 @@ body {
 	<a href="pollresult.html"><font size="4">Poll Results</font></a>
 	 <a href="students.html"><font size="4">Student Record</font></a>
 	<a href="complaints.html"><font size="4">Complaints Track</font></a>
-	<a href="dues.html"><font size="4">Account Dues</font></a>
-      <a href="hostelleave.html"><font size="4">Hostel leave</font></a>
+	<a href="messbill.html"><font size="4">Mess Bill</font></a>
+	<a href="hostelleave.html"><font size="4">Hostel leave</font></a>
     </br>
      <br/><br/><br/>
     <a href="Login%20Page.html"><font size="5"><span style="color: coral;"><b>LogOut ?</b></span></font></a>
@@ -164,30 +164,11 @@ body {
 
 <div class="main">
 <center>
-       <h3 style="color: brown;"> <a name="about">Update Mess Bill</a></h3>
-	 <font size="3"> <span style="color: red">* Choose odd if it is 1st month of odd semester</span></font></br>
-       <font size="3"> <span style="color: red">* Choose even if it is 1st month of even semester</span></font>	</br>
-<font size="3"> <span style="color: red">* Don't choose anything in semester if mess amount is not deposited</span></font></br>	   
-</br>
-	      <select name ="month" id="month" class="required-entry" required style="height:40px;width:130px;height:40px;background-color:coral;border-color:green;border-radius:8px">
-	<option value="" disabled selected>Choose Month</option>
-			<option value="january">January</option>
-            <option value="february">February</option>
-			<option value="march">March</option>
-			<option value="april">April</option>
-			<option value="may">May</option>
-			<option value="june">June</option>
-			<option value="july">July</option>
-			<option value="august">August</option>
-			<option value="september">September</option>
-			<option value="october">October</option>
-			<option value="november">November</option>
-			<option value="december">December</option>
-        </select>
-		<select name ="month" id="sem" class="required-entry" required style="height:40px;width:130px;height:40px;background-color:coral;border-color:green;border-radius:8px">
-	<option value="" disabled selected>Choose Semester</option>
-			<option value="even">Even</option>
-            <option value="odd">Odd</option>
+       <h3 style="color: brown;"> <a name="about">Update Account Dues</a></h3>
+	   <select name ="month" id="sem" class="required-entry" required style="height:40px;width:130px;height:40px;background-color:coral;border-color:green;border-radius:8px">
+	   <option value="" disabled selected>Choose Semester</option>
+			<option value="evenSemesterFee">Even</option>
+            <option value="oddSemesterFee">Odd</option>
         </select>
 		<br/>
 		</br>
@@ -201,7 +182,7 @@ body {
                       <label for-" Name"><center>Roll_No.</center> </label>
                       </td>
                       <td>
-                      <label for-" Name"><center>Amount </center></label>
+                      <label for-" Name"><center>Due Amount</center></label>
                       </td>
                     </tr>
                    <tr>
@@ -257,12 +238,11 @@ body {
                       </td>
                       <td>
                       <input type="text" name="R5" maxlength="50" size="30">
-                      </td>
-                    </tr>
+                      </td></tr>
                    </table>
                    <font size="3"> <span style="color: red">* Please check all details carefully !!</span></font> 
                   <br/>
-                  <input class="button" type="button" value="submit"  onclick="javascript:adddata(sem.value,month,N1.value,R1.value,N2.value,R2.value,N3.value,R3.value,N4.value,R4.value,N5.value,R5.value)" />
+                  <input class="button" type="button" value="submit"  onclick="javascript:adddata(sem.value,N1.value,R1.value,N2.value,R2.value,N3.value,R3.value,N4.value,R4.value,N5.value,R5.value)" />
                   <br/><br/><br/>
                   <span style="color: red"><b><i>Don't Waste Food</b></i></span>
                </form>
@@ -289,7 +269,7 @@ function myFunction() {
 }
 </script>
 <script>
-   function adddata(sem,month,n1,r1,n2,r2,n3,r3,n4,r4,n5,r5)
+   function adddata(month,n1,r1,n2,r2,n3,r3,n4,r4,n5,r5)
 {    
     var config = {
     apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
@@ -300,48 +280,40 @@ function myFunction() {
     messagingSenderId: "287611465178",
   };
   firebase.initializeApp(config);
-  var set="even";
   var userDataRef=firebase.database().ref("messAccount");
   userDataRef.once("value").then(function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
   var key = childSnapshot.key;
   var childData = childSnapshot.val();              
   var rn = childSnapshot.val().rollNumber;
+  if(month=="oddSemesterFee")
+  var amt1 = childSnapshot.val().oddSemesterFee;
+  else if(month=="evenSemesterFee")
+  var amt1 = childSnapshot.val().evenSemesterFee;
   if(rn==n1){
-        userDataRef.child(key).child(month.value).set(r1);
-		if(sem==set)
-		{userDataRef.child(key).child("evenSemesterFee").set("21000");
-		}
-		else if(sem=="odd")
-		userDataRef.child(key).child("oddSemesterFee").set("21000");
+        var am=Number(amt1)+Number(r1);
+		var amt=am.toString();
+        userDataRef.child(key).child(month).set(amt);
     }
   else if(rn==n2){
-        userDataRef.child(key).child(month.value).set(r2);
-		if(sem==set)
-		userDataRef.child(key).child("evenSemesterFee").set("21000");
-		else if(sem=="odd")
-		userDataRef.child(key).child("oddSemesterFee").set("21000");
+        var am=Number(amt1)+Number(r2);
+		var amt=am.toString();
+        userDataRef.child(key).child(month).set(amt);
     }
   else if(rn==n3){
-        userDataRef.child(key).child(month.value).set(r3);
-		if(sem==set)
-		userDataRef.child(key).child("evenSemesterFee").set("21000");
-		else if(sem=="odd")
-		userDataRef.child(key).child("oddSemesterFee").set("21000");
+        var am=Number(amt1)+Number(r3);
+		var amt=am.toString();
+        userDataRef.child(key).child(month).set(amt);
     }
   else if(rn==n4){
-        userDataRef.child(key).child(month.value).set(r4);
-		if(sem=="even")
-		userDataRef.child(key).child("evenSemesterFee").set("21000");
-		else if(sem=="odd")
-		userDataRef.child(key).child("oddSemesterFee").set("21000");
+        var am=Number(amt1)+Number(r4);
+		var amt=am.toString();
+        userDataRef.child(key).child(month).set(amt);
     }
   else if(rn==n5){
-        userDataRef.child(key).child(month.value).set(r5);
-		if(sem=="even")
-		userDataRef.child(key).child("evenSemesterFee").set("21000");
-		else if(sem=="odd")
-		userDataRef.child(key).child("oddSemesterFee").set("21000");
+        var am=Number(amt1)+Number(r5);	
+		var amt=am.toString();
+        userDataRef.child(key).child(month).set(amt);
     }	
 	  });
   });

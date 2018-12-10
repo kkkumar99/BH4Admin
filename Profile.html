@@ -1,0 +1,436 @@
+<html>
+<head>
+  <title>Placement Cell NITJ</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="screen.css" />
+      <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+  background: #fff;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+}
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #330099;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+    .container
+{
+   width:100%;
+}
+.dark
+{
+  background-color:#330099;
+  color:white;
+}
+.light
+{
+  background-color:#c9ccf2;
+}
+#top_left
+{
+  display:inline-block;
+  margin-left:32px;
+}
+#top_right
+{
+  float:right;
+  margin-right:60px;
+    margin-top:6px;
+  color:coral;
+}
+#main_left
+{
+  display:inline-block;
+  margin-left:50px;
+}
+#main_right
+{
+  float:right;
+  margin-right:400px;
+    margin-top:40px;
+  color:black;
+}
+#m_right
+{
+  margin-left:240px;
+    margin-right:20px;
+    margin-top:24px;
+  color:black;
+}
+#top_div
+{
+  height:85px;
+  line-height:40px;
+}
+input, button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+}
+
+.main-div, .loggedin-div {
+  width: 20%;
+  margin: 0px auto;
+  margin-top:150px;
+  padding: 20px;
+  display: none;
+}
+
+.main-div input {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  padding: 15px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.main-div input:focus {
+  border: 1px solid #777;
+}
+
+.main-div button, .loggedin-div button {
+  background: #5d8ffc;
+  color: #fff;
+  border: 1px solid #5d8ffc;
+  border-radius: 5px;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.main-div button:hover, .loggedin-div button:hover {
+  background: #fff;
+  color: #5d8ffc;
+  border: 1px solid #5d8ffc;
+  cursor: pointer;
+}
+.buttons {
+    background-color: green; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 9px;
+}
+        .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 105px;
+    left: 0;
+    background-color:#D3D3D3;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 3px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: green;
+    display: block;
+}
+        .sidenav a:hover {
+    color:coral;
+}
+
+
+        .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.content {
+  padding: 16px;
+}
+.sticky + .content {
+  padding-top: 102px;
+}
+ td, th {
+    border: 0.1px
+    solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+       
+
+</style>
+</head>
+<body>
+
+  <div id="login_div" class="main-div">
+      <a href="index.html"><font size="5"> <span style="color:blue;"><b><center>Training & Placement Cell NITJ</center></b></span></font></a></br>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+
+    <button onclick="login()">Login to Account</button>
+  </div>
+
+  <div id="user_div">
+      <div class="header" id="myHeader">
+    <div class="container dark">
+<div class="wrapper" id="top_div">
+<div id="top_left">
+    <a><font size="5"> <span style="color:goldenrod;"><b>Ravi Boys Hostel-4 NIT Jalandhar</b></span></font></br>
+     <a><font size="3"> <span style="color:red;"><i>G.T. Road, Amritsar Bye-Pass,
+         Jalandhar (Punjab), India - 144011</i></span></font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<font size="3.5"> <span style="color: lightcoral;"><b>Choose Date</b></span></font>
+  <input type="date" id="bday">&nbsp</input><button class="but" onclick="doit(bday.value)">Search</button>&nbsp;&nbsp;
+    <a><font size="4.5"> <span style="color:red;"><b>or</b></span></font></a>&nbsp;&nbsp;-->
+     
+</div>
+</div>
+</div>
+
+</div>
+
+     
+    <div id="m_right">
+        <table>
+				  <tr>
+                      <td1>
+                          <label for-" Name"><span style="color:coral;"><b>Roll No - </b>  </label>
+                      </td1>
+                      <td1>
+                      <input type="text" id="N1" maxlength="8" size="10">
+                      </td1></tr>
+                      <input class="button" type="button" value="Search"  onclick="javascript:adddata(N1.value)" />
+                      
+                    
+                   </table>
+    <form>
+                   <span style="color:black;font size="3""><p><b><i>Academic Credentials :</i></b></p>
+                       <table id="dm"  style="color:green;" font size="0.5">
+                  <tr>
+                       <th>
+                      <label for-" Name"><span style="color:brown;"><center>Name</center></span></label>
+                      </th> 
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>Roll No.</center></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>Room No.</center></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>Branch</center></span></label>
+                      </th>
+                    <th>
+                      <label for-" Name"><span style="color:brown;"><center>Mobile No.</center></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>Email Id</center></span></label>
+                      </th>
+                    </tr>
+                       </table>
+                       <span style="color:black; font size="3""><h4><b><i>Personal Details :</i></b></h4>
+                       <table id="demo"  style="color:green;" font size="0.5">
+                  <tr>
+                      
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>Father's Name</center></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>Mother's Name</center></span></label>
+                      </th>
+                      <th >
+                      <label for-" Name"><span style="color:brown;"><b><center>Gender</center></b></span></label>
+                      </th>
+                      <th >
+                      <label for-" Name"><span style="color:brown;"><b><center>Birth Date</center></b></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>Address</center></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>District</center></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><center>State</center></span></label>
+                      </th>
+
+                    </tr>
+                       </table>
+                             <span style="color:black; font size="3""><h4><b><i>Leave Record :</i></b></h4>
+                           <font size="1.8"><table id="w"  style="color:black;  ">
+	         
+	            <tr >
+					  <th>
+                      <label for-" Name"><span style="color:brown;">From</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">To</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">DepartureTime</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">Purpose</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">Status</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">Off Date</span></label>
+                      </th>
+                    </tr>
+			
+	</table></font>
+
+                           
+                       </div>
+
+               </form>
+           <div class="sidenav"><span style="color:blue;font size="3""><p><b><i><center>Profile</center></i></b></p>
+      
+    <center><img src="img/mentor.jpg" alt="" width="115" height="125" />
+        <p id="c"  style="color:green;" font size="1"></p>
+               <center><table>
+				  <tr>
+                      <td1>
+                          <label for-" Name"><span style="color:coral;"><b>Reset App Password</b>  </label>
+                      </td1>
+                          </tr><tr>
+                      <td1>
+                      <input type="text" id="N2" maxlength="8" size="10">
+                      </td1></tr>
+                      <input class="button" type="button" value="Submit" />
+                      
+                    
+                   </table></center>
+                                                                                 <center> <h4>Message</h4></center>
+
+         </div>
+	
+                                                                                  </div>
+    
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+<script type="text/javascript">
+    function adddata(n1){
+  var config = {
+    apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
+    authDomain: "bh4-nitj.firebaseapp.com",
+    databaseURL: "https://bh4-nitj.firebaseio.com",
+    projectId: "bh4-nitj",
+    storageBucket: "bh4-nitj.appspot.com",
+    messagingSenderId: "287611465178",
+  };
+  firebase.initializeApp(config); 
+          var userDataRef=firebase.database().ref("student");
+           userDataRef.once("value").then(function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var key = childSnapshot.key;
+      var childData = childSnapshot.val();
+      var rn = childSnapshot.val().rollNumber;
+      if(rn==n1)
+      {
+          var rn2   = childSnapshot.val().rollNumber;
+          var name  = childSnapshot.val().name;
+          var branch  = childSnapshot.val().Branch;
+          var sem  = childSnapshot.val().room_no;
+          var gender   = childSnapshot.val().Gender;
+          var FN  = childSnapshot.val().FN;
+          var MN   = childSnapshot.val().MN;
+          var DOB = childSnapshot.val().BD;
+          var dis   = childSnapshot.val().Dis;
+          var state  = childSnapshot.val().State;
+          var Mail   = childSnapshot.val().email;
+          var MOB = childSnapshot.val().mobile;
+             var add = childSnapshot.val().Address;   
+          var profile=childSnapshot.val().P;
+          
+          $("#dm").append('<tr><td><center>'+name+'</center></td><td><center>'+rn2+'</center></td><td><center>'+sem+'</center></td><td><center>'+branch+'</center></td><td><center> '+MOB+'</center></td><td><center> '+Mail+'</center></td></tr>');
+          $("#demo").append('<tr><td><center>'+FN+'</center></td><td><center>'+MN+'</center></td><td> <center>'+gender+'</center></td><td><center> '+DOB+'</center></td><td><center>'+add+'</center></td><td><center>'+dis+'</center></td><td><center>'+state+'</center></td></tr>');
+          $("#c").append('<b>'+rn2+'</b></br><b>'+name+'</b></br><b><span style="color:black;">Room No ('+sem+')</b></span>');
+        
+          
+          
+  }});
+      
+           });
+          
+        
+         var user=firebase.database().ref("hostelLeave");
+           user.once("value").then(function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var key = childSnapshot.key;
+      var childData = childSnapshot.val();
+      var rn2 = childSnapshot.val().rollNumber;
+      if(rn2==n1)
+      {
+  var op1 = childSnapshot.val().fromdate;
+  var op2 = childSnapshot.val().todate;
+  var op3 = childSnapshot.val().departureTime;
+  var op4 = childSnapshot.val().purpose;
+  var op7 = childSnapshot.val().status;
+  var op8 = childSnapshot.val().statusOffRequestDate;
+      $("#w").append("<tr><td>"+op1+"</td><td>"+op2+"</td><td>"+op3+"</td><td> "+op4+" </td><td>"+op7+" </td><td>"+op8+"</td></tr>");
+          
+          
+  }});
+      
+           });
+        
+    }
+  
+ 
+</script>
+  <script src="index.js"></script>
+
+</body>
+</html>

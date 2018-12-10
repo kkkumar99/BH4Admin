@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 170px;
+    position: fixed;
+    z-index: 1;
+    top: 115px;
+    left: 0;
+    background-color:#D3D3D3;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.buttons {
+    background-color: green; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 9px;
+}
+.cd
+{
+   width:100%;
+   height:50px;
+margin-top:115px;
+padding:0px;
+ position: fixed;
+top: 0;
+    background-color:white;
+}
+.sidenav a {
+    padding: 3px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: green;
+    display: block;
+}
+
+.sidenav a:hover {
+    color:coral;
+}
+
+.main {
+    margin-left: 175px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: -5px -10px;
+    margin-top: 0px;
+    margin-right:40px;
+	background-image:url("back.jpg");
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 10px;}
+    .sidenav a {font-size: 18px;}
+}
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #330099;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+    .container
+{
+   width:100%;
+}
+.dark
+{
+  background-color:#330099;
+  color:white;
+}
+.light
+{
+  background-color:#c9ccf2;
+}
+#top_left
+{
+  display:inline-block;
+  margin-left:32px;
+}
+#top_right
+{
+  float:right;
+  margin-right:60px;
+  color:coral;
+}
+#top_div
+{
+  height:95px;
+  line-height:40px;
+}
+    .c
+{
+   width:100%;
+   height:15px;
+margin-top:115px;
+padding:0px;
+ position: fixed;
+top: 0;
+    background-color:white;
+}
+
+#top_d
+{
+  height:40px;
+  line-height:40px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+.fixu{
+  margin-top:130px;
+  top:0;
+  position: fixed;
+  background-color:yellow;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

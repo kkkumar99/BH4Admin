@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sidenav {
+    display:none;
+}
+
+.sidenav a {
+    display:none;
+}
+
+.sidenav a:hover {
+    display:none;
+}
+
+.main {
+    margin-left: 15px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: -5px -10px;
+    margin-top: 0px;
+    margin-right:50px;
+	background-image:url("back.jpg");
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 10px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+.header {
+display:none;
+}
+
+
+  
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+.fixu{
+  display:none;
+   
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

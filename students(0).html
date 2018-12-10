@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,6 +105,31 @@ body {
   height:95px;
   line-height:40px;
 }
+#top_d
+{
+  height:40px;
+  line-height:40px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+.fixu{
+  margin-top:130px;
+  top:0;
+  position: fixed;
+  background-color:yellow;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
 </style>
 </head>
 <body>
@@ -141,19 +166,65 @@ body {
   <a href="createpoll.html"><font size="4">Create Poll</font></a>
     <a href="addcircular.html"><font size="4">Add Circular</font></a>
 	<a href="messbill.html"><font size="4">Mess Bill</font></a>
-	 <a href="students.html"><font size="4">Student Record</font></a>
 	<a href="pollresult.html"><font size="4">Poll Result</font></a>
-	<a href="dues.html"><font size="4">Account Dues</font></a>
 	<a href="test.html"><font size="4">About</font></a>
-	<a href="hostelleave.html"><font size="4">Hostel leave</font></a>
     </br>
-     <br/><br/><br/>
+     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <a href="Login%20Page.html"><font size="5"><span style="color: coral;"><b>LogOut ?</b></span></font></a>
 </div>
 
 <div class="main">
-    <h3 style="color: blue;"> <a name="about">Complaints</a></h3>
-	<h6 id="demo"  style="color:green;" font size="1"></h6>
+    <font size="2.5"><table id="demo"  style="color:black;">
+	         
+				  <tr>
+                      <th>
+                      <label for-" Name"><span style="color:brown;"><b>Roll No.</b></span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;">Odd</span></label>
+                      </th>
+                      <th>
+                      <label for-" Name"><span style="color:brown;">Even</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">August</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">September</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">October</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">November</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">December</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">January</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">February</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">March</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">April</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">May</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">June</span></label>
+                      </th>
+					  <th>
+                      <label for-" Name"><span style="color:brown;">July</span></label>
+                      </th>
+                    </tr>
+			
+	</table></font>
 	<br/>
    </div>
      
@@ -186,20 +257,27 @@ function myFunction() {
     messagingSenderId: "287611465178",
   };
   firebase.initializeApp(config);  
-  var userDataRef = firebase.database().ref().child('complaints').orderByChild('date');  //this is to read data from firebase database.
+  var userDataRef = firebase.database().ref("messAccount");  //this is to read data from firebase database.
   userDataRef.once("value").then(function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
   var key = childSnapshot.key;
   var childData = childSnapshot.val();              
-  var id_val = childSnapshot.val().complaintId;
-  var op1 = childSnapshot.val().date;
-  var op2 = childSnapshot.val().sender;
-  var op3 = childSnapshot.val().type;
-  var op4 = childSnapshot.val().details;
-  var op5 = childSnapshot.val().title;
-  var op6 = childSnapshot.val().status;
-  var op7 = childSnapshot.val().comments;
-  $("#demo").append('<span style="color: #993300;"><b>Comment ID:- </b></span>'+id_val+'</br><b><span style="color: #993300;">Date: </b></span> '+op1+'</br><span style="color: #993300;"><b>Sender RollNo: </b></span> '+op2+'</br><span style="color: #993300;"><b>Related Committee: </b></span>'+op3+'</br><b><span style="color: #993300;">Title: </b></span>'+op5+'</br><b><span style="color: #993300;">Details: </b></span> '+op4+'</br><b><span style="color: #993300;">Status: </b></span>'+op6+'</br><b><span style="color: #993300;">Comments: </b></span>'+op7+'</br></br>'); });
+  var id_val = childSnapshot.val().rollNumber;
+  var op1 = childSnapshot.val().oddSemesterFee;
+  var op2 = childSnapshot.val().evenSemesterFee;
+  var op3 = childSnapshot.val().august;
+  var op4 = childSnapshot.val().september;
+  var op5 = childSnapshot.val().october;
+  var op6 = childSnapshot.val().november;
+  var op7 = childSnapshot.val().december;
+  var op8 = childSnapshot.val().january;
+  var op9 = childSnapshot.val().february;
+  var op10= childSnapshot.val().march;
+  var op11= childSnapshot.val().april;
+  var op12= childSnapshot.val().may;
+  var op13= childSnapshot.val().june;
+  var op14= childSnapshot.val().july;
+  $("#demo").append("<tr><td>"+id_val+"</td><td>"+op1+"</td><td>"+op2+"</td><td>"+op3+"</td><td>"+op4+"</td><td>"+op5+"</td><td>"+op6+"</td><td>"+op7+"</td><td>"+op8+"</td><td>"+op9+"</td><td>"+op10+"</td><td>"+op11+"</td><td>"+op12+"</td><td>"+op13+"</td><td>"+op14+"</td></tr>"); });
   });
 </script>
 </body>

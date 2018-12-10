@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<title>BH4 Mess Leave</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet"href="print.css"media="print"/>
+<link rel="stylesheet"href="screen.css"media="screen"/>
+<body>
+<style>
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+.table{
+    width:100%;
+  }
+}
+@viewport{
+    zoom: 1.0;
+	width: extend-to-zoom;
+}
+@-ms-viewport{
+    zoom: 1.0;
+	width: extend-to-zoom;
+}
+
+</style>
+<div class="w3-container w3-green">
+ <center> <h1>Hostel-4 Mess Leave</h1> </center>
+</div>
+<div style="margin-top:40px">
+        <center><font size="3"> <span style="color: #993300"><b>off Date:</b></span></font>
+  <input type="date" id="bday"></input><button class="buttons" onclick="doit(bday.value)">Search</button>
+         </br></br> <font size="3"> <span style="color: #993300"><b>Room No:</b></span></font>
+   <input type="text" id="bday1" maxlength="3" size="5"></input><button class="buttons" onclick="doit2(bday1.value)">Search</button></br></center>
+		</br><font size="1.8"><h6 id="demo"  style="color:black;padding-left: 30px">	
+	</h6></font>
+	</div>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+<script>
+window.onscroll = function() {myFunction()};
+</script>
+<script type="text/javascript">
+
+ function doit(date){
+  date=date.replace(/-/g, "/");
+  date=date.split("/").reverse().join("/");
+  var config = {
+    apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
+    authDomain: "bh4-nitj.firebaseapp.com",
+    databaseURL: "https://bh4-nitj.firebaseio.com",
+    projectId: "bh4-nitj",
+    storageBucket: "bh4-nitj.appspot.com",
+    messagingSenderId: "287611465178",
+  };
+  firebase.initializeApp(config);  
+  var userDataRef = firebase.database().ref("messLeave").orderByKey();  //this is to read data from firebase database.
+  userDataRef.once("value").then(function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var key = childSnapshot.key;
+  var childData = childSnapshot.val();              
+  //var Ques = childSnapshot.val().rollNumber;
+  var Ques1 = childSnapshot.val().name;
+  var id_val = childSnapshot.val().roomNumber;
+  var op1 = childSnapshot.val().fromdate;
+  var op2 = childSnapshot.val().todate;
+  var op3 = childSnapshot.val().fromdiet;
+  var op4 = childSnapshot.val().todiet;
+  var op5 = childSnapshot.val().requestSendDate;
+  var op6 = childSnapshot.val().requestSendDiet;
+  if(op5==date)
+  $("#demo").append('<span style="color: #993300;"><b>Room No:- </b></span>'+id_val+'</br><b><span style="color: #993300;">Name:- </b></span> '+Ques1+'</br><span style="color: #993300;"><b>From Date:- </b></span> '+op1+'</br><span style="color: #993300;"><b>From Diet:-</b></span>'+op3+'</br><b><span style="color: #993300;">To Date:- </b></span>'+op2+'</br><b><span style="color: #993300;">To Diet:- </b></span> '+op4+'</br><b><span style="color: #993300;">Send Date:- </b></span>'+op5+'</br><b><span style="color: #993300;">Send Diet:- </b></span> '+op6+'</br></br>'); });
+  });
+ }
+  function doit2(date){
+  var config = {
+    apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
+    authDomain: "bh4-nitj.firebaseapp.com",
+    databaseURL: "https://bh4-nitj.firebaseio.com",
+    projectId: "bh4-nitj",
+    storageBucket: "bh4-nitj.appspot.com",
+    messagingSenderId: "287611465178",
+  };
+  firebase.initializeApp(config);  
+  var userDataRef = firebase.database().ref("messLeave").orderByKey();  //this is to read data from firebase database.
+  userDataRef.once("value").then(function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var key = childSnapshot.key;
+  var childData = childSnapshot.val();              
+  //var Ques = childSnapshot.val().rollNumber;
+  var Ques1 = childSnapshot.val().name;
+  var id_val = childSnapshot.val().roomNumber;
+  var op1 = childSnapshot.val().fromdate;
+  var op2 = childSnapshot.val().todate;
+  var op3 = childSnapshot.val().fromdiet;
+  var op4 = childSnapshot.val().todiet;
+  var op5 = childSnapshot.val().requestSendDate;
+  var op6 = childSnapshot.val().requestSendDiet;
+  if(id_val==date)
+    $("#demo").append('<span style="color: #993300;"><b>Room No:- </b></span>'+id_val+'</br><b><span style="color: #993300;">Name:- </b></span> '+Ques1+'</br><span style="color: #993300;"><b>From Date:- </b></span> '+op1+'</br><span style="color: #993300;"><b>From Diet:-</b></span>'+op3+'</br><b><span style="color: #993300;">To Date:- </b></span>'+op2+'</br><b><span style="color: #993300;">To Diet:- </b></span> '+op4+'</br><b><span style="color: #993300;">Send Date:- </b></span>'+op5+'</br><b><span style="color: #993300;">Send Diet:- </b></span> '+op6+'</br></br>'); });
+  });
+ }
+ function doit3(month){
+  var config = {
+    apiKey: "AlzaSyAX2YzZd3d6Z0iFW9eT11LM4rbe5PZcuNs",
+    authDomain: "bh4-nitj.firebaseapp.com",
+    databaseURL: "https://bh4-nitj.firebaseio.com",
+    projectId: "bh4-nitj",
+    storageBucket: "bh4-nitj.appspot.com",
+    messagingSenderId: "287611465178",
+  };
+  firebase.initializeApp(config);  
+  var userDataRef = firebase.database().ref("messLeave").orderByKey();  //this is to read data from firebase database.
+  userDataRef.once("value").then(function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var key = childSnapshot.key;
+  var childData = childSnapshot.val();              
+  //var Ques = childSnapshot.val().rollNumber;
+  var Ques1 = childSnapshot.val().name;
+  var id_val = childSnapshot.val().roomNumber;
+  var op1 = childSnapshot.val().fromdate;
+  var op2 = childSnapshot.val().todate;
+  var op3 = childSnapshot.val().fromdiet;
+  var op4 = childSnapshot.val().todiet;
+  var op5 = childSnapshot.val().requestSendData;
+  /*var op6 = childSnapshot.val().phoneNumber;
+  var op7 = childSnapshot.val().status;
+  var op8 = childSnapshot.val().offDate;
+  var op9 = childSnapshot.val().month;*/
+  if(op1==date)
+      $("#demo").append("<tr><td>"+Ques+"</td><td>"+Ques1+"</td><td>"+id_val+"</td><td>"+op1+"</td><td>"+op2+"</td><td>"+op3+"</td><td> "+op4+" </td><td>"+op5+" </td><td>"+op6+" </td><td>"+op7+" </td><td>"+op8+"</td></tr>"); });
+  });
+ }
+</script>
+
+</body>
+</html>
